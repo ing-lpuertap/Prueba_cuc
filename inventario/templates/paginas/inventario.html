@@ -1,0 +1,77 @@
+{% extends "base.html" %}
+
+{% block titulo %} Inventario {% endblock %}
+
+{% block contenido %}
+
+Sección de articulos en inventario
+
+
+<div class="card">
+    <div class="card-header">
+        <div class="row">
+            <div class="col-3">
+                <label for="" class="form-label">Bloque</label>
+                <select class="form-select form-select-xs" name="" id="bloque">
+                    <option value="">Seleccione el Bloque</option>
+                    {% for bloque in bloques %}
+                    
+                    <option value="{{bloque.id}}">{{bloque.nombre}}</option>
+                    {% endfor %}
+                              
+                </select>
+            </div> 
+            <div class="col-3">
+                <label for="" class="form-label">Oficina</label>
+                <select class="form-select form-select-xs" name="" id="oficina">
+                    <option value="">Seleccione La oficina</option>
+                    {% for oficina in oficinas %}
+                    
+                    <option value="{{oficina.id}}">{{oficina.nom_oficina}}</option>
+                    {% endfor %}
+                              
+                </select>
+            </div>
+            <div class="col-5">
+                <label for="" class="form-label">Articulos</label>
+                
+                <select class="form-select form-select-xs" name="" id="articulo">
+                    <option value="">Seleccione el Articulo</option>
+                    {% for articulo in articulos %}
+                    
+                    <option value="{{articulo.id}}">{{articulo.tipo}}-{{articulo.serial}}</option>
+                    {% endfor %}
+                              
+                </select>
+            </div>
+            <div class="col-1">
+                <label for="" class="form-label"></label>
+
+                <a  id="btnagregar" class="btn btn-primary" href="#"  role="button">Agregar</a>
+                
+            </div>
+        </div>
+       
+    </div>
+    <div class="card-body">
+      <div class="table-responsive">
+        <table class="table table-primary">
+            <thead>
+                <tr>
+                    <th>Articulos</th>                  
+                    <th>Eliminar</th>                  
+                </tr>
+            </thead>
+            <tbody id="tr_articulos">
+                              
+            </tbody>
+        </table>
+      </div>
+      
+       
+    
+    </div>
+</div>
+
+{% endblock %}
+
